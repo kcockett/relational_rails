@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/", to: "welcome#index"
-  
+  get "/stores", to: "stores#index"
 end
