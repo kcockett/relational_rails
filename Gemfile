@@ -53,6 +53,9 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "pry"
   gem "simplecov"
+  gem "capybara"
+  gem "rspec-rails"
+  gem "launchy" # save and open page
 end
 
 group :development do
