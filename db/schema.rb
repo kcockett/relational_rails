@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_212929) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_07_224004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,12 +33,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_212929) do
     t.string "model"
     t.integer "mileage"
     t.boolean "repairs_needed"
-    t.integer "store_id"
     t.integer "seating"
     t.date "last_service_date"
     t.integer "engine_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "store_id", null: false
+    t.index ["store_id"], name: "index_vehicles_on_store_id"
   end
 
+  add_foreign_key "vehicles", "stores"
 end

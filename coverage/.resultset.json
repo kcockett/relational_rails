@@ -228,12 +228,62 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
       "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/helpers/application_helper.rb": {
         "lines": [
           1,
+          null
+        ]
+      },
+      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/spec/features/vehicles/vehicles_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -258,12 +308,16 @@
           null
         ]
       },
-      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/controllers/vehicles_controller.rb": {
+      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/controllers/stores_controller.rb": {
         "lines": [
           1,
           1,
           1,
           null,
+          1,
+          1,
+          null,
+          1,
           1,
           1,
           null,
@@ -275,8 +329,20 @@
           1,
           null
         ]
+      },
+      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/controllers/vehicles_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1688765792
+    "timestamp": 1688772304
   }
 }
