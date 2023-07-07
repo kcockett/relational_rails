@@ -22,7 +22,7 @@ describe "The stores pages" do
         expect(page).to have_content(@store1.state)
         expect(page).to have_content(@store1.zip_code)
         expect(page).to have_content(@store1.manager_name)
-        save_and_open_page
+        # save_and_open_page
       end
     end
   end
