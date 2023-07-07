@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   get "/", to: "welcome#index"
   get "/stores", to: "stores#index"
-  get "stores/:store_id", to: "stores#show"
+  get "/stores/:store_id", to: "stores#show"
+  get "/vehicles", to: "vehicles#index"
 end

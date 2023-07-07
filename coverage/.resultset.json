@@ -226,6 +226,7 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
@@ -249,14 +250,21 @@
           null
         ]
       },
-      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/controllers/stores_controller.rb": {
+      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/models/concerns/vehicle.rb": {
+        "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/controllers/vehicles_controller.rb": {
         "lines": [
           1,
           1,
           1,
           null,
-          1,
-          1,
+          null,
+          null,
           null,
           null
         ]
@@ -268,6 +276,6 @@
         ]
       }
     },
-    "timestamp": 1688761400
+    "timestamp": 1688763407
   }
 }
