@@ -1,0 +1,13 @@
+<h1>OHV Asset Manager</h1>
+
+<h2>Vehicle list for <%= @store.store_name %></h2>
+<hr />
+<% @vehicles.each do |vehicle| %>
+  <h3><%= vehicle.model_year %> <%= vehicle.make %> <%= vehicle.model %></h3>
+  <p>Seating: <%= vehicle.seating %><br />
+  Mileage: <%= vehicle.mileage %><br />
+  Engine hours: <%= vehicle.engine_hours %><br />
+  Repairs Needed: <%= vehicle.repairs_needed %><br />
+  Last service: <%= vehicle.last_service_date %><br />
+  Current Location: <%= vehicle.store_id %></p>
+<% end %>
