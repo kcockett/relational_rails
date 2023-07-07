@@ -9,10 +9,42 @@ describe "The vehicles pages" do
   end
 
   describe "As a visitor" do
-    describe "When I visit '/vehicles'" do
+    describe "US3 - When I visit '/vehicles'" do
       it "I see each vehicle in the system including the vehicle attributes" do
         visit "/vehicles"
-        #save_and_open_page
+
+        expect(page).to have_content(@vehicle1.model_year)
+        expect(page).to have_content(@vehicle2.model_year)
+        expect(page).to have_content(@vehicle1.make)
+        expect(page).to have_content(@vehicle1.model)
+        expect(page).to have_content(@vehicle3.model)
+        expect(page).to have_content(@vehicle1.mileage)
+        expect(page).to have_content(@vehicle1.store_id)
+        expect(page).to have_content(@vehicle1.seating)
+        expect(page).to have_content(@vehicle1.last_service_date)
+        expect(page).to have_content(@vehicle1.engine_hours)
+      end
+    end
+    
+    #User Story 4, Child Show 
+    
+    # As a visitor
+    # When I visit '/child_table_name/:id'
+    # Then I see the child with that id including the child's attributes
+    # (data from each column that is on the child table)
+    describe "US4 - When I visit '/child_table_name/:id'" do
+      it "Then I see the child with that id including the child's attributes" do
+        visit "/vehicles/#{@vehicle1.id}"
+
+        expect(page).to have_content(@vehicle1.model_year)
+        expect(page).to have_content(@vehicle1.make)
+        expect(page).to have_content(@vehicle1.model)
+        expect(page).to have_content(@vehicle1.mileage)
+        expect(page).to have_content(@vehicle1.store_id)
+        expect(page).to have_content(@vehicle1.seating)
+        expect(page).to have_content(@vehicle1.last_service_date)
+        expect(page).to have_content(@vehicle1.engine_hours)
+        save_and_open_page
       end
     end
   end
