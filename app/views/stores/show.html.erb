@@ -1,0 +1,10 @@
+<h1>OHV Asset Manager</h1>
+
+<h2><%= @store.store_name %></h2>
+<hr />
+<p><%= @store.address1 %><br />
+<%= @store.address2 %><br />
+<%= @store.city %>, <%= @store.state %><%= @store.zip_code %><br /></p>
+<p><%= @store.manager_name %><br />
+Currently hiring? <%= result = @store.currently_hiring ? "Yes" : "No" %><br /></p>
+
