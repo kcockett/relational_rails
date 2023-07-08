@@ -62,6 +62,12 @@ describe "The stores pages" do
         
         expect(page).to have_link("All Stores", :href=>"/stores")
       end
+      it "US10 - I see a link to take me to that stores's vehicles page" do
+        visit "/stores/#{@store1.id}"
+        
+        save_and_open_page
+        expect(page).to have_link("Vehicles at this store", :href=>"/stores/#{@store1.id}/vehicles")
+      end
     end
     
     describe "When I visit '/stores/:id/vehicles" do
@@ -95,4 +101,3 @@ describe "The stores pages" do
     end
   end
 end
-#save_and_open_page
