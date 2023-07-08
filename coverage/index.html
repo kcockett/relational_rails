@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-07-07T18:20:46-06:00">2023-07-07T18:20:46-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-07-07T18:44:54-06:00">2023-07-07T18:44:54-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.02
+         1.08
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>62</b> relevant lines,
-    <span class="green"><b>62</b> lines covered</span> and
+    <b>63</b> relevant lines,
+    <span class="green"><b>63</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -84,11 +84,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#26b391a83fafef78c80823cdf58af0d3eef2e2e0" class="src_link" title="app/controllers/stores_controller.rb">app/controllers/stores_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">12</td>
-            <td class="cell--number">8</td>
-            <td class="cell--number">8</td>
+            <td class="cell--number">13</td>
+            <td class="cell--number">9</td>
+            <td class="cell--number">9</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.13</td>
+            <td class="cell--number">1.56</td>
             
           </tr>
         
@@ -115,7 +115,7 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#7be0d8e04e0382e7fc53e0d9769cdeac85ee1e1f" class="src_link" title="app/models/concerns/vehicle.rb">app/models/concerns/vehicle.rb</a></td>
+            <td class="strong t-file__name"><a href="#e6b3da38c23305a154b86b15f869cb62af1709a8" class="src_link" title="app/models/store.rb">app/models/store.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">3</td>
             <td class="cell--number">1</td>
@@ -126,7 +126,7 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#e6b3da38c23305a154b86b15f869cb62af1709a8" class="src_link" title="app/models/store.rb">app/models/store.rb</a></td>
+            <td class="strong t-file__name"><a href="#8769a4900bfe0220b4ce733e23b18d2d9d638380" class="src_link" title="app/models/vehicle.rb">app/models/vehicle.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">3</td>
             <td class="cell--number">1</td>
@@ -330,8 +330,8 @@
     
 
     <div class="t-line-summary">
-      <b>8</b> relevant lines.
-      <span class="green"><b>8</b> lines covered</span> and
+      <b>9</b> relevant lines.
+      <span class="green"><b>9</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -398,8 +398,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="6">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="3" data-linenumber="6">
+            <span class="hits">3</span>
             
 
             
@@ -409,24 +409,24 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="7">
+          <li class="covered" data-hits="3" data-linenumber="7">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    @vehicle_count = Vehicle.where(store_id: @store.id).count</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
             
             
 
             
 
             <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def show_vehicles</code>
           </li>
         </div>
       
@@ -437,7 +437,7 @@
 
             
 
-            <code class="ruby">    @store = Store.find(params[:location_id])</code>
+            <code class="ruby">  def show_vehicles</code>
           </li>
         </div>
       
@@ -448,12 +448,23 @@
 
             
 
+            <code class="ruby">    @store = Store.find(params[:location_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    @vehicles = Vehicle.where(store_id: @store.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="11">
+          <li class="never" data-hits="" data-linenumber="12">
             
             
 
@@ -464,7 +475,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="12">
+          <li class="never" data-hits="" data-linenumber="13">
             
             
 
@@ -596,70 +607,6 @@
 </div>
 
       
-        <div class="source_table" id="7be0d8e04e0382e7fc53e0d9769cdeac85ee1e1f">
-  <div class="header">
-    <h3>app/models/concerns/vehicle.rb</h3>
-    <h4>
-      <span class="green">
-  100.0%
-</span>
-
-      lines covered
-    </h4>
-
-    
-
-    <div class="t-line-summary">
-      <b>1</b> relevant lines.
-      <span class="green"><b>1</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
-    </div>
-
-    
-
-  </div>
-
-  <pre>
-    <ol>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="1">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">class Vehicle &lt; ApplicationRecord</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="2">
-            
-            
-
-            
-
-            <code class="ruby">  #</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="3">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-    </ol>
-  </pre>
-</div>
-
-      
         <div class="source_table" id="e6b3da38c23305a154b86b15f869cb62af1709a8">
   <div class="header">
     <h3>app/models/store.rb</h3>
@@ -705,6 +652,70 @@
             
 
             <code class="ruby">  #</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="3">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="8769a4900bfe0220b4ce733e23b18d2d9d638380">
+  <div class="header">
+    <h3>app/models/vehicle.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>1</b> relevant lines.
+      <span class="green"><b>1</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">class Vehicle &lt; ApplicationRecord</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="2">
+            
+            
+
+            
+
+            <code class="ruby">  </code>
           </li>
         </div>
       

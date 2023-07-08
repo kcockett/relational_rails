@@ -22,7 +22,6 @@ describe "The stores pages" do
         expect(page).to have_content(@store1.created_at)
         expect(page).to have_content(@store2.created_at)
         expect(page.text.index(@store2.store_name)).to be > page.text.index(@store1.store_name)
-        save_and_open_page
       end
     end
     describe "When I visit '/stores/:id" do
@@ -35,6 +34,14 @@ describe "The stores pages" do
         expect(page).to have_content(@store1.state)
         expect(page).to have_content(@store1.zip_code)
         expect(page).to have_content(@store1.manager_name)
+      end
+      it "US7 - I see a count of the number of children associated with this parent" do
+        visit "/stores/#{@store1.id}"
+        expect(page).to have_content("Vehicles in store: #{Vehicle.where(store_id: @store1.id).count}")
+        
+        visit "/stores/#{@store2.id}"
+        expect(page).to have_content("Vehicles in store: #{Vehicle.where(store_id: @store2.id).count}")
+        #save_and_open_page
       end
     end
 

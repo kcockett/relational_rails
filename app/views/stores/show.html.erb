@@ -5,6 +5,7 @@
 <p><%= @store.address1 %><br />
 <%= @store.address2 %><br />
 <%= @store.city %>, <%= @store.state %><%= @store.zip_code %><br /></p>
-<p><%= @store.manager_name %><br />
-Currently hiring? <%= result = @store.currently_hiring ? "Yes" : "No" %><br /></p>
+<p>Vehicles in store: <%= @vehicle_count %><br />
+  Store manager: <%= @store.manager_name %><br />
+  Currently hiring? <%= result = @store.currently_hiring ? "Yes" : "No" %><br /></p>
 
