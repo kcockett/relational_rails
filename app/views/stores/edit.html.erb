@@ -1,0 +1,31 @@
+<h1>OHV Asset Manager</h1>
+<nav>
+  <a href="/stores">All Stores</a>
+  <a href="/vehicles">All Vehicles</a>
+</nav>
+
+<h2>Update Store</h2>
+<p><form id="updatestoreform" action="/stores/<%=@store.id%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <label>Store Name</label><br />
+  <input type="text" name="store[store_name]" value="<%@store.store_name%>"><br />
+  <label>Address 1</label><br />
+  <input type="text" name="store[address1]" value="<%@store.address1%>"><br />
+  <label>Address 2</label><br />
+  <input type="text" name="store[address2]" value="<%@store.address2%>"><br />
+  <label>City</label><br />
+  <input type="text" name="store[city]" value="<%@store.city%>"><br />
+  <label>State</label><br />
+  <input type="text" name="store[state]" value="<%@store.state%>"><br />
+  <label>Zip Code</label><br />
+  <input type="text" name="store[zip_code]" value="<%@store.zip_code%>"><br />
+  <label>Manager Name</label><br />
+  <input type="text" name="store[manager_name]" value="<%@store.manager_name%>"><br />
+  Currently Hiring?<br />
+  <input type="radio" id="true" name="store[currently_hiring]" value="true">
+  <label>Yes</label><br />
+  <input type="radio" id="false" name="store[currently_hiring]" value="false">
+  <label>No</label><br />
+  <input type="submit" value="Submit">
+</form></p>

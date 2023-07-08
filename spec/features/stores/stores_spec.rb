@@ -118,11 +118,11 @@ describe "The stores pages" do
           fill_in "store[manager_name]", with: "Joe Smith"
         end
         click_button("Submit")
+        save_and_open_page
         
         expect(current_path).to eq("/stores/#{@store1.id}")
       end
     end
-    #save_and_open_page
     
     describe "When I visit '/stores/:id/vehicles" do
       it "Then I see each vehicle that is associated with that store with each vehicle's attributes" do
