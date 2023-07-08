@@ -21,7 +21,7 @@ describe "The stores pages" do
 
         expect(page).to have_content(@store1.created_at)
         expect(page).to have_content(@store2.created_at)
-        expect(page.text.index(@store2.store_name)).to be < page.text.index(@store1.store_name)
+        expect(page.text.index(@store2.store_name)).to be > page.text.index(@store1.store_name)
         save_and_open_page
       end
     end
