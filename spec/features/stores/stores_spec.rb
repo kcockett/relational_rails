@@ -14,7 +14,6 @@ describe "The stores pages" do
         expect(page).to have_content(@store1.store_name)
         expect(page).to have_content(@store2.store_name)
       end
-
       it "US6 - I see that records are ordered by most recently created first
       And next to each of the records I see when it was created" do
         visit "/stores"
@@ -45,23 +44,22 @@ describe "The stores pages" do
         expect(page).to have_css('#newstoreform')
       end
       it "US11 - When I fill out the form with a new store's attributes: And I click the button 'Create store' to submit the form, then a `POST` request is sent to the '/stores' route, a new store record is created, and I am redirected to the store Index page where I see the new store displayed." do
-      visit "/stores/new"
-      within('#newstoreform') do
-        fill_in "store[store_name]", with: "New Store"
-        fill_in "store[address1]", with: "123 Any Street"
-        fill_in "store[address2]", with: "Suite 110"
-        fill_in "store[city]", with: "Anytown"
-        fill_in "store[state]", with: "CO"
-        fill_in "store[zip_code]", with: "80000"
-        page.choose('true')
-        fill_in "store[manager_name]", with: "Joe Smith"
+        visit "/stores/new"
+        within('#newstoreform') do
+          fill_in "store[store_name]", with: "New Store"
+          fill_in "store[address1]", with: "123 Any Street"
+          fill_in "store[address2]", with: "Suite 110"
+          fill_in "store[city]", with: "Anytown"
+          fill_in "store[state]", with: "CO"
+          fill_in "store[zip_code]", with: "80000"
+          page.choose('true')
+          fill_in "store[manager_name]", with: "Joe Smith"
+        end
+        click_button("Submit")
+        
+        expect(current_path).to eq("/stores/")
       end
-      click_button("Submit")
       
-      expect(current_path).to eq("/stores/")
-      save_and_open_page
-      end
-
     end
     describe "When I visit '/stores/:id" do
       it "US2 - Then I see the store with that id including the store's attributes" do
@@ -95,6 +93,34 @@ describe "The stores pages" do
         visit "/stores/#{@store1.id}"
         
         expect(page).to have_link("Vehicles at this store", :href=>"/stores/#{@store1.id}/vehicles")
+      end
+      it "US12 - I see a link to update the store 'Update Store'" do
+        visit "/stores/#{@store1.id}"
+        
+        expect(page).to have_link("Update Store", :href=>"/stores/#{@store1.id}/edit")
+      end
+      it "US12 - When I click the link 'Update Store' then I am taken to '/stores/:id/edit' where I see a form to edit the stores's attributes" do
+        visit "/stores/#{@store1.id}"
+        click_link('Update Store')
+        expect(current_path).to eq("/stores/#{@store1.id}/edit")
+        expect(page).to have_css('#updatestoreform')
+      end
+      it "US12 - When I fill out the form with updated information and I click the button to submit the form then a `PATCH` request is sent to '/stores/:id', the store's info is updated, and I am redirected to the store's Show page where I see the store's updated info" do
+        visit "/stores/#{@store1.id}/edit"
+        within('#updatestoreform') do
+          fill_in "store[store_name]", with: "Moab Touring Co"
+          fill_in "store[address1]", with: "123 Any Street"
+          fill_in "store[address2]", with: "Suite 110"
+          fill_in "store[city]", with: "Anytown"
+          fill_in "store[state]", with: "CO"
+          fill_in "store[zip_code]", with: "80000"
+          page.choose('true')
+          fill_in "store[manager_name]", with: "Joe Smith"
+        end
+        click_button("Submit")
+        save_and_open_page
+        
+        expect(current_path).to eq("/stores/#{@store1.id}")
       end
     end
     

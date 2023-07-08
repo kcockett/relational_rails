@@ -5,7 +5,7 @@
 </nav>
 
 <h2>Add New Store</h2>
-<p><form id="newstoreform" action="/stores/new" method="post">
+<p><form id="newstoreform" action="/stores" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label>Store Name</label><br />
   <input type="text" name="store[store_name]"><br />

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-07-08T16:25:02-06:00">2023-07-08T16:25:02-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-07-08T17:43:38-06:00">2023-07-08T17:43:38-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.28
+         1.34
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>71</b> relevant lines,
-    <span class="green"><b>71</b> lines covered</span> and
+    <b>80</b> relevant lines,
+    <span class="green"><b>80</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -84,11 +84,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#26b391a83fafef78c80823cdf58af0d3eef2e2e0" class="src_link" title="app/controllers/stores_controller.rb">app/controllers/stores_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">29</td>
-            <td class="cell--number">14</td>
-            <td class="cell--number">14</td>
+            <td class="cell--number">47</td>
+            <td class="cell--number">21</td>
+            <td class="cell--number">21</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">2.43</td>
+            <td class="cell--number">2.29</td>
             
           </tr>
         
@@ -238,9 +238,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#cf65159e15a6010b63e30777d0baa87c8d8ff2b3" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">16</td>
-            <td class="cell--number">10</td>
-            <td class="cell--number">10</td>
+            <td class="cell--number">18</td>
+            <td class="cell--number">12</td>
+            <td class="cell--number">12</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -330,8 +330,8 @@
     
 
     <div class="t-line-summary">
-      <b>14</b> relevant lines.
-      <span class="green"><b>14</b> lines covered</span> and
+      <b>21</b> relevant lines.
+      <span class="green"><b>21</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -398,8 +398,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="6">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="9" data-linenumber="6">
+            <span class="hits">9</span>
             
 
             
@@ -409,8 +409,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="7">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="9" data-linenumber="7">
+            <span class="hits">9</span>
             
 
             
@@ -651,7 +651,205 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
+          <li class="covered" data-hits="1" data-linenumber="29">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def edit</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="30">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    @store = Store.find(params[:store_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="31">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def update</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    store = Store.find(params[:store_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="34">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    store.update({</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
+            
+            
+
+            
+
+            <code class="ruby">      store_name: params[:store][:store_name],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="36">
+            
+            
+
+            
+
+            <code class="ruby">      address1: params[:store][:address1],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="37">
+            
+            
+
+            
+
+            <code class="ruby">      address2: params[:store][:address2],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="38">
+            
+            
+
+            
+
+            <code class="ruby">      city: params[:store][:city],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby">      state: params[:store][:state],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
+            
+            
+
+            
+
+            <code class="ruby">      zip_code: params[:store][:zip_code],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="41">
+            
+            
+
+            
+
+            <code class="ruby">      currently_hiring: params[:store][:currently_hiring],</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">      manager_name: params[:store][:manager_name]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">      })</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="44">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    store.save</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    redirect_to &quot;/stores/#{store.id}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="47">
             
             
 
@@ -3162,8 +3360,8 @@
     
 
     <div class="t-line-summary">
-      <b>10</b> relevant lines.
-      <span class="green"><b>10</b> lines covered</span> and
+      <b>12</b> relevant lines.
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -3280,7 +3478,7 @@
 
             
 
-            <code class="ruby">  post &quot;/stores/new&quot;, to: &quot;stores#create&quot;</code>
+            <code class="ruby">  post &quot;/stores&quot;, to: &quot;stores#create&quot;</code>
           </li>
         </div>
       
@@ -3302,7 +3500,7 @@
 
             
 
-            <code class="ruby">  get &quot;/stores/:location_id/vehicles&quot;, to: &quot;stores#show_vehicles&quot;</code>
+            <code class="ruby">  patch &quot;/stores/:store_id&quot;, to: &quot;stores#update&quot;</code>
           </li>
         </div>
       
@@ -3313,7 +3511,7 @@
 
             
 
-            <code class="ruby">  get &quot;/stores/new&quot;, to: &quot;stores#new&quot;</code>
+            <code class="ruby">  get &quot;/stores/:store_id/edit&quot;, to: &quot;stores#edit&quot;</code>
           </li>
         </div>
       
@@ -3324,7 +3522,7 @@
 
             
 
-            <code class="ruby">  get &quot;/vehicles&quot;, to: &quot;vehicles#index&quot;</code>
+            <code class="ruby">  get &quot;/stores/:location_id/vehicles&quot;, to: &quot;stores#show_vehicles&quot;</code>
           </li>
         </div>
       
@@ -3335,12 +3533,34 @@
 
             
 
+            <code class="ruby">  get &quot;/stores/new&quot;, to: &quot;stores#new&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="16">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  get &quot;/vehicles&quot;, to: &quot;vehicles#index&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="17">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">  get &quot;/vehicles/:vehicle_id&quot;, to: &quot;vehicles#show&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
+          <li class="never" data-hits="" data-linenumber="18">
             
             
 
