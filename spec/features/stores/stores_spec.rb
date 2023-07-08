@@ -28,6 +28,11 @@ describe "The stores pages" do
 
         expect(page).to have_link("All Vehicles", :href=>"/vehicles")
       end
+      it "US9 - I see a link at the top of the page that takes me to the stores Index" do
+        visit "/stores" 
+        
+        expect(page).to have_link("All Stores", :href=>"/stores")
+      end
     end
     describe "When I visit '/stores/:id" do
       it "US2 - Then I see the parent with that id including the parent's attributes" do
@@ -51,7 +56,11 @@ describe "The stores pages" do
         visit "/stores/#{@store1.id}"
         
         expect(page).to have_link("All Vehicles", :href=>"/vehicles")
-        save_and_open_page
+      end
+      it "US9 - I see a link at the top of the page that takes me to the stores Index" do
+        visit "/stores/#{@store1.id}"
+        
+        expect(page).to have_link("All Stores", :href=>"/stores")
       end
     end
     
@@ -75,9 +84,15 @@ describe "The stores pages" do
       end
       it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
         visit "/stores/#{@store1.id}/vehicles"
-  
+        
         expect(page).to have_link("All Vehicles", :href=>"/vehicles")
+      end
+      it "US9 - I see a link at the top of the page that takes me to the stores Index" do
+        visit "/stores/#{@store1.id}/vehicles"
+        
+        expect(page).to have_link("All Stores", :href=>"/stores")
       end
     end
   end
 end
+#save_and_open_page

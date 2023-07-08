@@ -29,6 +29,11 @@ describe "The vehicles pages" do
 
         expect(page).to have_link("All Vehicles", :href=>"/vehicles")
       end
+      it "US9 - I see a link at the top of the page that takes me to the stores Index" do
+        visit "/vehicles"
+        
+        expect(page).to have_link("All Stores", :href=>"/stores")
+      end
     end
 
     describe "US4 - When I visit '/child_table_name/:id'" do
@@ -49,6 +54,11 @@ describe "The vehicles pages" do
         visit "/vehicles/#{@vehicle1.id}"
 
         expect(page).to have_link("All Vehicles", :href=>"/vehicles")
+      end
+      it "US9 - I see a link at the top of the page that takes me to the stores Index" do
+        visit "/vehicles/#{@vehicle1.id}"
+        
+        expect(page).to have_link("All Stores", :href=>"/stores")
       end
     end
   end
