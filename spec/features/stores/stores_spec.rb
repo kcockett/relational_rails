@@ -33,9 +33,46 @@ describe "The stores pages" do
         
         expect(page).to have_link("All Stores", :href=>"/stores")
       end
+      it "US11 - I see a link to create a new store record, 'New Store" do
+        visit "/stores"
+        
+        expect(page).to have_link("New Store")
+      end
+      it "US11 - When I click this link, I am taken to '/store/new' where I see a form for a new store record" do
+        visit "/stores"
+        click_link('New Store')
+        expect(current_path).to eq('/stores/new')
+        expect(page).to have_css('newstoreform')
+      end
+      it "US11 - When I fill out the form with a new store's attributes: And I click the button 'Create store' to submit the form, then a `POST` request is sent to the '/stores' route,
+      a new store record is created, and I am redirected to the store Index page where I see the new store displayed." do
+        visit "/stores/new"
+        within('#newstoreform') do
+          fill_in "Store name", with: "New Store"
+          fill_in "Address1", with: "123 Any Street"
+          fill_in "Address2", with: "Suite 110"
+          fill_in "City", with: "Anytown"
+          fill_in "State", with: "CO"
+          fill_in "Zip Code", with: "80000"
+          select("True", from: "Currently Hiring").select_option
+          fill_in "Manager name", with: "Joe Smith"
+        end
+        click_button("Submit")
+
+        expect(current_path).to eq("/stores/")
+        expect(page).to have_content("New Store")
+        expect(page).to have_content("123 Any Street")
+        expect(page).to have_content("Suite 110")
+        expect(page).to have_content("Anytown")
+        expect(page).to have_content("80000")
+        expect(page).to have_content("Joe Smith")
+
+        save_and_open_page
+      end
+
     end
     describe "When I visit '/stores/:id" do
-      it "US2 - Then I see the parent with that id including the parent's attributes" do
+      it "US2 - Then I see the store with that id including the store's attributes" do
         visit "/stores/#{@store1.id}"
         expect(page).to have_content(@store1.store_name)
         expect(page).to have_content(@store1.address1)
@@ -65,7 +102,6 @@ describe "The stores pages" do
       it "US10 - I see a link to take me to that stores's vehicles page" do
         visit "/stores/#{@store1.id}"
         
-        save_and_open_page
         expect(page).to have_link("Vehicles at this store", :href=>"/stores/#{@store1.id}/vehicles")
       end
     end
