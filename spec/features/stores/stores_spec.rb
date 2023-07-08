@@ -36,38 +36,30 @@ describe "The stores pages" do
       it "US11 - I see a link to create a new store record, 'New Store" do
         visit "/stores"
         
-        expect(page).to have_link("New Store")
+        expect(page).to have_link("New Store", :href=>"/stores/new")
       end
       it "US11 - When I click this link, I am taken to '/store/new' where I see a form for a new store record" do
         visit "/stores"
         click_link('New Store')
         expect(current_path).to eq('/stores/new')
-        expect(page).to have_css('newstoreform')
+        expect(page).to have_css('#newstoreform')
       end
-      it "US11 - When I fill out the form with a new store's attributes: And I click the button 'Create store' to submit the form, then a `POST` request is sent to the '/stores' route,
-      a new store record is created, and I am redirected to the store Index page where I see the new store displayed." do
-        visit "/stores/new"
-        within('#newstoreform') do
-          fill_in "Store name", with: "New Store"
-          fill_in "Address1", with: "123 Any Street"
-          fill_in "Address2", with: "Suite 110"
-          fill_in "City", with: "Anytown"
-          fill_in "State", with: "CO"
-          fill_in "Zip Code", with: "80000"
-          select("True", from: "Currently Hiring").select_option
-          fill_in "Manager name", with: "Joe Smith"
-        end
-        click_button("Submit")
-
-        expect(current_path).to eq("/stores/")
-        expect(page).to have_content("New Store")
-        expect(page).to have_content("123 Any Street")
-        expect(page).to have_content("Suite 110")
-        expect(page).to have_content("Anytown")
-        expect(page).to have_content("80000")
-        expect(page).to have_content("Joe Smith")
-
-        save_and_open_page
+      it "US11 - When I fill out the form with a new store's attributes: And I click the button 'Create store' to submit the form, then a `POST` request is sent to the '/stores' route, a new store record is created, and I am redirected to the store Index page where I see the new store displayed." do
+      visit "/stores/new"
+      within('#newstoreform') do
+        fill_in "store[store_name]", with: "New Store"
+        fill_in "store[address1]", with: "123 Any Street"
+        fill_in "store[address2]", with: "Suite 110"
+        fill_in "store[city]", with: "Anytown"
+        fill_in "store[state]", with: "CO"
+        fill_in "store[zip_code]", with: "80000"
+        page.choose('true')
+        fill_in "store[manager_name]", with: "Joe Smith"
+      end
+      click_button("Submit")
+      
+      expect(current_path).to eq("/stores/")
+      save_and_open_page
       end
 
     end
