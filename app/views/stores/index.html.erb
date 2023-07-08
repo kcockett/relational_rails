@@ -5,9 +5,9 @@
 </nav>
 
 <h2>Store list</h2>
+<p><a href="/stores/new">New Store</a></p>
 <hr />
 <% @stores.order(created_at: :desc).each do |store| %>
   <h3><%= store.store_name %></h3>
   <p>Created on: <%= store.created_at %></p>
 <% end %>
-
