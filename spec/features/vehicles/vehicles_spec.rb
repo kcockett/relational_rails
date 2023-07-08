@@ -24,6 +24,11 @@ describe "The vehicles pages" do
         expect(page).to have_content(@vehicle1.last_service_date)
         expect(page).to have_content(@vehicle1.engine_hours)
       end
+      it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
+        visit "/vehicles"
+
+        page.should have_link("All Vehicles", :href=>"/vehicles")
+      end
     end
 
     describe "US4 - When I visit '/child_table_name/:id'" do
@@ -39,6 +44,11 @@ describe "The vehicles pages" do
         expect(page).to have_content(@vehicle1.last_service_date)
         expect(page).to have_content(@vehicle1.engine_hours)
         #save_and_open_page
+      end
+      it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
+        visit "/vehicles/#{@vehicle1.id}"
+
+        page.should have_link("All Vehicles", :href=>"/vehicles")
       end
     end
   end

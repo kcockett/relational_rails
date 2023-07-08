@@ -23,6 +23,11 @@ describe "The stores pages" do
         expect(page).to have_content(@store2.created_at)
         expect(page.text.index(@store2.store_name)).to be > page.text.index(@store1.store_name)
       end
+      it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
+        visit "/stores" 
+
+        page.should have_link("All Vehicles", :href=>"/vehicles")
+      end
     end
     describe "When I visit '/stores/:id" do
       it "US2 - Then I see the parent with that id including the parent's attributes" do
@@ -43,12 +48,17 @@ describe "The stores pages" do
         expect(page).to have_content("Vehicles in store: #{Vehicle.where(store_id: @store2.id).count}")
         #save_and_open_page
       end
-    end
+      it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
+        visit "/stores/#{@store1.id}"
 
+        page.should have_link("All Vehicles", :href=>"/vehicles")
+      end
+    end
+    
     describe "When I visit '/stores/:id/vehicles" do
       it "Then I see each vehicle that is associated with that store with each vehicle's attributes" do
         visit "/stores/#{@store1.id}/vehicles"
-
+        
         expect(page).to have_content(@vehicle1.model_year)
         expect(page).to have_content(@vehicle2.model_year)
         expect(page).to have_content(@vehicle1.make)
@@ -61,7 +71,12 @@ describe "The stores pages" do
         expect(page).to_not have_content(@vehicle3.make)
         expect(page).to_not have_content(@vehicle3.model)
         expect(page).to_not have_content(@vehicle3.mileage)
-
+        
+      end
+      it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
+        visit "/stores/#{@store1.id}/vehicles"
+  
+        page.should have_link("All Vehicles", :href=>"/vehicles")
       end
     end
   end
