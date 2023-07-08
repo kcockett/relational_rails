@@ -27,7 +27,7 @@ describe "The vehicles pages" do
       it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
         visit "/vehicles"
 
-        page.should have_link("All Vehicles", :href=>"/vehicles")
+        expect(page).to have_link("All Vehicles", :href=>"/vehicles")
       end
     end
 
@@ -48,7 +48,7 @@ describe "The vehicles pages" do
       it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
         visit "/vehicles/#{@vehicle1.id}"
 
-        page.should have_link("All Vehicles", :href=>"/vehicles")
+        expect(page).to have_link("All Vehicles", :href=>"/vehicles")
       end
     end
   end

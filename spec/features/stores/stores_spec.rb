@@ -26,7 +26,7 @@ describe "The stores pages" do
       it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
         visit "/stores" 
 
-        page.should have_link("All Vehicles", :href=>"/vehicles")
+        expect(page).to have_link("All Vehicles", :href=>"/vehicles")
       end
     end
     describe "When I visit '/stores/:id" do
@@ -46,12 +46,12 @@ describe "The stores pages" do
         
         visit "/stores/#{@store2.id}"
         expect(page).to have_content("Vehicles in store: #{Vehicle.where(store_id: @store2.id).count}")
-        #save_and_open_page
       end
       it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
         visit "/stores/#{@store1.id}"
-
-        page.should have_link("All Vehicles", :href=>"/vehicles")
+        
+        expect(page).to have_link("All Vehicles", :href=>"/vehicles")
+        save_and_open_page
       end
     end
     
@@ -76,7 +76,7 @@ describe "The stores pages" do
       it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
         visit "/stores/#{@store1.id}/vehicles"
   
-        page.should have_link("All Vehicles", :href=>"/vehicles")
+        expect(page).to have_link("All Vehicles", :href=>"/vehicles")
       end
     end
   end
