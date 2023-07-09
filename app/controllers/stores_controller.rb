@@ -6,12 +6,19 @@ class StoresController < ApplicationController
     @store = Store.find(params[:store_id])
     @vehicle_count = Vehicle.where(store_id: @store.id).count
   end
+
   def show_vehicles
     @store = Store.find(params[:location_id])
-    @vehicles = Vehicle.where(store_id: @store.id)
+    if params[:sort] == 'alphabetical'
+      @vehicles = Vehicle.where(store_id: @store.id).order(:make)
+    else
+      @vehicles = Vehicle.where(store_id: @store.id)
+    end
   end
+
   def new
   end
+
   def create
     store = Store.new({
       store_name: params[:store][:store_name],
@@ -26,9 +33,11 @@ class StoresController < ApplicationController
       store.save
       redirect_to "/stores/"
   end
+
   def edit
     @store = Store.find(params[:store_id])
   end
+
   def update
     store = Store.find(params[:store_id])
     store.update({
@@ -44,9 +53,11 @@ class StoresController < ApplicationController
     store.save
     redirect_to "/stores/#{store.id}"
   end
+
   def edit_vehicle
     @store = Store.find(params[:location_id])
   end
+
   def add_vehicle
     store = Store.find(params[:location_id])
     vehicle = Vehicle.new({

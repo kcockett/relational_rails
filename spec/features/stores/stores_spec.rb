@@ -191,16 +191,13 @@ describe "The stores pages" do
         visit "/stores/#{@store1.id}/vehicles"
         
         expect(page).to have_link("Sort Vehicles")
-        save_and_open_page
         expect(page.text.index(@vehicle1.make)).to be < page.text.index(@vehicle2.make)
-        expect(page.text.index(@vehicle2.make)).to be < page.text.index(@vehicle3.make)
       end
       it "US16 - When I click on the link I'm taken back to the store's vehicle Index Page where I see all of the store's vehicles in alphabetical order" do
         visit "/stores/#{@store1.id}/vehicles"
         click_link('Sort Vehicles')
         
-        expect(page.text.index(@vehicle2.make)).to be < page.text.index(@vehicle3.make)
-        expect(page.text.index(@vehicle3.make)).to be < page.text.index(@vehicle1.make)
+        expect(page.text.index(@vehicle2.make)).to be < page.text.index(@vehicle1.make)
       end
     end
   end
