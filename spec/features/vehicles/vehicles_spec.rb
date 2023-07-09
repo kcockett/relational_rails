@@ -42,10 +42,26 @@ describe "The vehicles pages" do
         expect(page).to have_content("Ace 900 SE")
         expect(page).to have_content("CForce 600 Touring")
       end
+      it "US18 - Next to every vehicle, I see a link to edit that vehicle's info" do
+        visit "/vehicles"
+
+        all('h3').each do |h3|
+          within(h3) do
+            expect(page).to have_link('edit')
+          end
+        end
+      end
+      it "US18 - When I click the link I should be taken to that `vehicles` edit page where I can update its information" do
+        visit "/vehicles"
+        first('a', text: 'edit').click
+
+        save_and_open_page
+        expect(current_path).to eq("/vehicles/#{@vehicle2.id}/edit")
+      end
     end
 
     describe "When I visit '/vehicles/:id'" do
-      it "US4 - Then I see the child with that id including the child's attributes" do
+      it "US4 - Then I see the vehicle with that id including the vehicle's attributes" do
         visit "/vehicles/#{@vehicle1.id}"
 
         expect(page).to have_content(@vehicle1.model_year)
@@ -104,3 +120,4 @@ describe "The vehicles pages" do
     end
   end
 end
+#save_and_open_page

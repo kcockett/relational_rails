@@ -3,10 +3,10 @@
   <a href="/stores">All Stores</a>
   <a href="/vehicles">All Vehicles</a>
 </nav>
-<h2>Vehicle list</h2>
 <hr />
+<h2>Vehicle list</h2>
 <% @vehicles.each do |vehicle| %>
-  <h3><%= vehicle.model_year %> <%= vehicle.make %> <%= vehicle.model %></h3>
+  <h3><%= vehicle.model_year %> <%= vehicle.make %> <%= vehicle.model %> - <a style="font-size: 14px;" href="/vehicles/<%=vehicle.id%>/edit">edit</a></h3>
   <p>Seating: <%= vehicle.seating %><br />
   Mileage: <%= vehicle.mileage %><br />
   Engine hours: <%= vehicle.engine_hours %><br />
