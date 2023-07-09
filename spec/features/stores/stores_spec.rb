@@ -58,6 +58,20 @@ describe "The stores pages" do
         
         expect(current_path).to eq("/stores/")
       end
+      it "US17 - Next to every store, I see a link to edit that store's info" do
+        visit "/stores/"
+
+        all('h3').each do |h3|
+          within(h3) do
+            expect(page).to have_link('edit')
+          end
+        end
+      end
+      it "US17 - When I click the link I should be taken to that store's edit page where I can update its information" do
+        visit "/stores/"
+        first('a', text: 'edit').click
+        expect(current_path).to eq("/stores/#{@store1.id}/edit")
+      end
       
     end
     describe "When I visit '/stores/:id" do
@@ -128,7 +142,6 @@ describe "The stores pages" do
         expect(page).to have_content("Joe Smith")
       end
     end
-    
     describe "When I visit '/stores/:id/vehicles" do
       it "Then I see each vehicle that is associated with that store with each vehicle's attributes" do
         visit "/stores/#{@store1.id}/vehicles"
