@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   patch "/stores/:store_id", to: "stores#update"
   get "/stores/:store_id/edit", to: "stores#edit"
   get "/stores/:location_id/vehicles", to: "stores#show_vehicles"
+  get "/stores/:location_id/vehicles/new", to: "stores#edit_vehicle"
+  post "/stores/:location_id/vehicles", to: "stores#add_vehicle"
   get "/stores/new", to: "stores#new"
   get "/vehicles", to: "vehicles#index"
   get "/vehicles/:vehicle_id", to: "vehicles#show"
