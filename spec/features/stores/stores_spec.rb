@@ -141,6 +141,23 @@ describe "The stores pages" do
         expect(page).to have_content("80000")
         expect(page).to have_content("Joe Smith")
       end
+      it "US19 - Then I see a link to delete the store" do
+        visit "/stores/#{@store1.id}"
+        
+        expect(page).to have_link("Delete Store", :href=>"/stores/#{@store1.id}")
+      end
+      it "US19 - When I click the link 'Delete Store' then a 'DELETE' request is sent to '/stores/:id', the store is deleted, and all child records are deleted and I am redirected to the store index page where I no longer see this store" do
+        visit "/stores/#{@store1.id}"
+        click_link('Delete Store')
+        
+        expect(current_path).to eq("/stores")
+        expect(page).to_not have_content("#{@store1.store_name}")
+        
+        visit "/vehicles/"
+        expect(page).to_not have_content("#{@vehicle1.make}")
+        expect(page).to_not have_content("#{@vehicle2.make}")
+        expect(page).to have_content("#{@vehicle3.make}")
+      end
     end
     describe "When I visit '/stores/:id/vehicles" do
       it "Then I see each vehicle that is associated with that store with each vehicle's attributes" do
@@ -226,7 +243,6 @@ describe "The stores pages" do
         first('a', text: 'edit').click
         
         expect(current_path).to eq("/vehicles/#{@vehicle1.id}/edit")
-        save_and_open_page
       end
     end
   end

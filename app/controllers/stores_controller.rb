@@ -74,4 +74,10 @@ class StoresController < ApplicationController
       vehicle.save
       redirect_to "/stores/#{store.id}/vehicles"
   end
+
+  def destroy
+    @store = Store.find(params[:id])
+    @store.destroy
+    redirect_to "/stores", notice: "Store was successfully deleted."
+  end
 end

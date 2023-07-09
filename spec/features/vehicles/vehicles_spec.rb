@@ -55,7 +55,6 @@ describe "The vehicles pages" do
         visit "/vehicles"
         first('a', text: 'edit').click
 
-        save_and_open_page
         expect(current_path).to eq("/vehicles/#{@vehicle2.id}/edit")
       end
     end

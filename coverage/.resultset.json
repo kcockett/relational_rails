@@ -238,6 +238,7 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
@@ -306,7 +307,6 @@
           1,
           1,
           null,
-          1,
           1,
           null,
           null,
@@ -377,7 +377,7 @@
       "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/models/store.rb": {
         "lines": [
           1,
-          null,
+          1,
           null
         ]
       },
@@ -399,11 +399,11 @@
         "lines": [
           1,
           1,
-          9,
+          10,
           null,
           1,
-          9,
-          9,
+          11,
+          11,
           null,
           null,
           1,
@@ -473,6 +473,12 @@
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -486,7 +492,7 @@
         "lines": [
           1,
           1,
-          5,
+          6,
           null,
           1,
           6,
@@ -513,6 +519,6 @@
         ]
       }
     },
-    "timestamp": 1688938118
+    "timestamp": 1688942713
   }
 }

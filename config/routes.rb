@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/stores", to: "stores#create"
   get "/stores/:store_id", to: "stores#show"
   patch "/stores/:store_id", to: "stores#update"
+  delete "/stores/:id", to: "stores#destroy"
   get "/stores/:store_id/edit", to: "stores#edit"
   get "/stores/:location_id/vehicles", to: "stores#show_vehicles"
   get "/stores/:location_id/vehicles/new", to: "stores#edit_vehicle"
