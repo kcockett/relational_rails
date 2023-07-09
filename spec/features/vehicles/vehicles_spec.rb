@@ -127,6 +127,7 @@ describe "The vehicles pages" do
         
         expect(current_path).to eq("/vehicles")
         expect(page).to_not have_content("#{@vehicle1.make}")
+        save_and_open_page
       end
     end
   end
