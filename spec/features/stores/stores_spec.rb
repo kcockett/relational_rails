@@ -212,6 +212,22 @@ describe "The stores pages" do
         
         expect(page.text.index(@vehicle2.make)).to be < page.text.index(@vehicle1.make)
       end
+      it "US18 - Next to every vehicle, I see a link to edit that vehicle's info" do
+        visit "/stores/#{@store1.id}/vehicles"
+        
+        all('h3').each do |h3|
+          within(h3) do
+            expect(page).to have_link('edit')
+          end
+        end
+      end
+      it "US18 - When I click the link I should be taken to that `vehicles` edit page where I can update its information" do
+        visit "/stores/#{@store1.id}/vehicles"
+        first('a', text: 'edit').click
+        
+        expect(current_path).to eq("/vehicles/#{@vehicle1.id}/edit")
+        save_and_open_page
+      end
     end
   end
 end
