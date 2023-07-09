@@ -34,6 +34,13 @@ describe "The vehicles pages" do
         
         expect(page).to have_link("All Stores", :href=>"/stores")
       end
+      it "US15 - Then I only see records where the boolean column is `true`" do
+        visit "/vehicles"
+        save_and_open_page
+        expect(page).to have_content("WR250F")
+        expect(page).to_not have_content("Ace 900 SE")
+        expect(page).to_not have_content("CForce 600 Touring")
+      end
     end
 
     describe "US4 - When I visit '/vehicles/:id'" do
