@@ -13,4 +13,4 @@
   Store manager: <%= @store.manager_name %><br />
   Currently hiring? <%= result = @store.currently_hiring ? "Yes" : "No" %><br /></p>
 
-<p><a href="/stores/<%=@store.id%>/edit">Update Store</a></p>
+<p><a href="/stores/<%=@store.id%>/edit">Update Store</a> | <a href="/stores/<%=@store.id%>/delete">Delete Store</a></p>
