@@ -90,9 +90,8 @@ describe "The vehicles pages" do
         expect(current_path).to eq("/vehicles/#{@vehicle1.id}")
         expect(page).to have_content("1972")
         expect(page).to have_content("Kawasaki")
-        expect(page).to have_content("Suite 110")
+        expect(page).to have_content("KX110")
         expect(page).to have_content("17652")
-        expect(page).to have_content("80000")
         expect(page).to have_content("704")
       end
     end

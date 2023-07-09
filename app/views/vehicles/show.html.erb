@@ -3,8 +3,9 @@
   <a href="/stores">All Stores</a>
   <a href="/vehicles">All Vehicles</a>
 </nav>
-<h2><%= @vehicle.model_year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
 <hr />
+<p><a href="/vehicles/<%=@vehicle.id%>/edit">Update Vehicle</a></p>
+<h2><%= @vehicle.model_year %> <%= @vehicle.make %> <%= @vehicle.model %></h2>
   <p>Seating: <%= @vehicle.seating %><br />
   Mileage: <%= @vehicle.mileage %><br />
   Engine hours: <%= @vehicle.engine_hours %><br />

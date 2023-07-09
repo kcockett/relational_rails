@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get "/stores/new", to: "stores#new"
   get "/vehicles", to: "vehicles#index"
   get "/vehicles/:vehicle_id", to: "vehicles#show"
+  get "/vehicles/:vehicle_id/edit", to: "vehicles#edit"
+  patch "/vehicles/:vehicle_id", to: "vehicles#update"
 end
