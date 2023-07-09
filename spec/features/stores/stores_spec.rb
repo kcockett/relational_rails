@@ -102,6 +102,7 @@ describe "The stores pages" do
       it "US12 - When I click the link 'Update Store' then I am taken to '/stores/:id/edit' where I see a form to edit the stores's attributes" do
         visit "/stores/#{@store1.id}"
         click_link('Update Store')
+
         expect(current_path).to eq("/stores/#{@store1.id}/edit")
         expect(page).to have_css('#updatestoreform')
       end
@@ -118,9 +119,14 @@ describe "The stores pages" do
           fill_in "store[manager_name]", with: "Joe Smith"
         end
         click_button("Submit")
-        save_and_open_page
         
         expect(current_path).to eq("/stores/#{@store1.id}")
+        expect(page).to have_content("Moab Touring Co")
+        expect(page).to have_content("123 Any Street")
+        expect(page).to have_content("Suite 110")
+        expect(page).to have_content("Anytown")
+        expect(page).to have_content("80000")
+        expect(page).to have_content("Joe Smith")
       end
     end
     
@@ -152,6 +158,39 @@ describe "The stores pages" do
         
         expect(page).to have_link("All Stores", :href=>"/stores")
       end
+      it "US13 - Then I see a link to add a new vehicle for that store 'Create Vehicle'" do
+        visit "/stores/#{@store1.id}/vehicles"
+        
+        expect(page).to have_link("Create Vehicle", :href=>"/stores/#{@store1.id}/vehicles/new")
+      end
+      
+      it "US13 - When I click the 'Create Vehicle' link I am taken to '/stores/:store_id/vehicles/new' where I see a form to add a new adoptable vehicle" do
+        visit "/stores/#{@store1.id}/vehicles"
+        click_link('Create Vehicle')
+        
+        expect(current_path).to eq("/stores/#{@store1.id}/vehicles/new")
+        expect(page).to have_css('#newvehicleform')
+      end
+      
+      it "US13 - When I fill in the form with the vehicle's attributes and I click the button 'Create Vehicle' then a `POST` request is sent to '/stores/:store_id/vehicles', a new vehicle object/row is created for that store, and I am redirected to the store vehicles Index page where I can see the new vehicle listed" do
+        visit "/stores/#{@store1.id}/vehicles/new"
+        
+        within('#newvehicleform') do
+          fill_in "vehicle[model_year]", with: "2024"
+          fill_in "vehicle[make]", with: "CFMoto"
+          fill_in "vehicle[model]", with: "CForce 1000"
+          fill_in "vehicle[mileage]", with: "5"
+          fill_in "vehicle[seating]", with: "2"
+          fill_in "vehicle[last_service_date]", with: "#{Time.now}"
+          fill_in "vehicle[engine_hours]", with: "1"
+        end
+        click_button("Submit")
+        
+        expect(current_path).to eq("/stores/#{@store1.id}/vehicles")
+        expect(page).to have_content("2024")
+        expect(page).to have_content("CForce 1000")
+      end
     end
   end
 end
+#save_and_open_page

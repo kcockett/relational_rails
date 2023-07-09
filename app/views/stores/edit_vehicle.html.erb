@@ -1,0 +1,31 @@
+<h1>OHV Asset Manager</h1>
+<nav>
+  <a href="/stores">All Stores</a>
+  <a href="/vehicles">All Vehicles</a>
+</nav>
+<hr />
+<h2>Update Vehicle</h2>
+<p><form id="newvehicleform" action="/stores/<%=@store.id%>/vehicles" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="vehicle[store_id]" value="<%=@store.id%>">
+  <label>Model Year</label><br />
+  <input type="text" name="vehicle[model_year]"><br />
+  <label>Make</label><br />
+  <input type="text" name="vehicle[make]"><br />
+  <label>Model</label><br />
+  <input type="text" name="vehicle[model]"><br />
+  <label>Mileage</label><br />
+  <input type="text" name="vehicle[mileage]"><br />
+  <label>Engine Hours</label><br />
+  <input type="text" name="vehicle[engine_hours]"><br />
+  <label>Seating</label><br />
+  <input type="text" name="vehicle[seating]"><br />
+  <label>Last Service Date</label><br />
+  <input type="text" name="vehicle[last_service_date]"><br />
+  Repairs Needed?<br />
+  <input type="radio" id="true" name="vehicle[repairs_needed]" value="true">
+  <label>Yes</label><br />
+  <input type="radio" id="false" name="vehicle[repairs_needed]" value="false">
+  <label>No</label><br />
+  <input type="submit" value="Submit">
+</form></p>
