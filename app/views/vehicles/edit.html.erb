@@ -1,0 +1,31 @@
+<h1>OHV Asset Manager</h1>
+<nav>
+  <a href="/stores">All Stores</a>
+  <a href="/vehicles">All Vehicles</a>
+</nav>
+
+<h2>Update Vehicle</h2>
+<p><form id="updatevehicleform" action="/vehicles/<%=@vehicle.id%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <label>Model year</label><br />
+  <input type="text" name="vehicle[model_year]" value="<%@vehicle.model_year%>"><br />
+  <label>Make</label><br />
+  <input type="text" name="vehicle[make]" value="<%@vehicle.make%>"><br />
+  <label>Model</label><br />
+  <input type="text" name="vehicle[model]" value="<%@vehicle.model%>"><br />
+  <label>Mileage</label><br />
+  <input type="text" name="vehicle[mileage]" value="<%@vehicle.mileage%>"><br />
+  <label>Seating</label><br />
+  <input type="text" name="vehicle[seating]" value="<%@vehicle.seating%>"><br />
+  <label>Last Service Date</label><br />
+  <input type="text" name="vehicle[last_service_date]" value="<%@vehicle.last_service_date%>"><br />
+  <label>Engine hours</label><br />
+  <input type="text" name="vehicle[engine_hours]" value="<%@vehicle.engine_hours%>"><br />
+  Repairs needed?<br />
+  <input type="radio" id="true" name="vehicle[repairs_needed]" value="true">
+  <label>Yes</label><br />
+  <input type="radio" id="false" name="vehicle[repairs_needed]" value="false">
+  <label>No</label><br />
+  <input type="submit" value="Submit">
+</form></p>
