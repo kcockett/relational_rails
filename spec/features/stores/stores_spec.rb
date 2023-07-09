@@ -244,6 +244,20 @@ describe "The stores pages" do
         
         expect(current_path).to eq("/vehicles/#{@vehicle1.id}/edit")
       end
+      it "US21 - I see a form that allows me to input a number value" do
+        visit "/stores/#{@store1.id}/vehicles"
+        save_and_open_page
+        expect(page).to have_field("minimum_seating")
+      end
+      it "US21 - When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'. Then I am brought back to the current index page with only the records that meet that threshold shown." do
+        visit "/stores/#{@store1.id}/vehicles"
+        within('#seating_filter_form') { fill_in "seating_filter", with: "2" }
+        click_button("Submit")
+        
+        expect(current_path).to eq("/stores/#{@store1.id}/vehicles")
+        expect(page).to_not have_content("#{@vehicle1}")
+        expect(page).to have_content("#{@vehicle2}")
+      end
     end
   end
 end
