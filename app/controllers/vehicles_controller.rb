@@ -23,4 +23,9 @@ class VehiclesController < ApplicationController
     vehicle.save
     redirect_to "/vehicles/#{vehicle.id}"
   end
+  def destroy
+    @vehicle = Vehicle.find(params[:id])
+    @vehicle.destroy
+    redirect_to "/vehicles", notice: "vehicle was successfully deleted."
+  end
 end

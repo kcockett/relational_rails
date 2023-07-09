@@ -116,6 +116,19 @@ describe "The vehicles pages" do
         expect(page).to have_content("17652")
         expect(page).to have_content("704")
       end
+      it "US20 - Then I see a link to delete the child 'Delete Vehicle" do
+        visit "/vehicles/#{@vehicle1.id}"
+        
+        expect(page).to have_link("Delete Vehicle", :href=>"/vehicles/#{@vehicle1.id}")
+      end
+      it "US20 - When I click the link then a 'DELETE' request is sent to '/vehicles/:id', the vehicle is deleted, and I am redirected to the vehicle index page where I no longer see this vehicle" do
+        visit "/vehicles/#{@vehicle1.id}"
+        click_link('Delete Vehicle')
+        
+        expect(current_path).to eq("/vehicles")
+        expect(page).to_not have_content("#{@vehicle1.make}")
+        save_and_open_page
+      end
     end
   end
 end

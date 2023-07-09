@@ -5,12 +5,18 @@
   <a href="/stores/<%=@store.id%>/vehicles">Vehicles at this store</a>
 </nav>
 <hr />
-<h2><%= @store.store_name %></h2>
-<p><%= @store.address1 %><br />
-<%= @store.address2 %><br />
-<%= @store.city %>, <%= @store.state %><%= @store.zip_code %><br /></p>
-<p>Vehicles in store: <%= @vehicle_count %><br />
+<h2>
+  <%= @store.store_name %>
+</h2>
+<p>
+  <%= @store.address1 %><br />
+  <%= @store.address2 %><br />
+  <%= @store.city %>, <%= @store.state %><%= @store.zip_code %><br />
+</p>
+<p>
+  Vehicles in store: <%= @vehicle_count %><br />
   Store manager: <%= @store.manager_name %><br />
-  Currently hiring? <%= result = @store.currently_hiring ? "Yes" : "No" %><br /></p>
+  Currently hiring? <%= result = @store.currently_hiring ? "Yes" : "No" %><br />
+</p>
 
 <p><a href="/stores/<%=@store.id%>/edit">Update Store</a> | <a href="/stores/<%=@store.id%>" data-method="delete">Delete Store</a></p>
