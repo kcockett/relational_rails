@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.where(repairs_needed: true)
   end
   def show
     @vehicle = Vehicle.find(params[:vehicle_id])
