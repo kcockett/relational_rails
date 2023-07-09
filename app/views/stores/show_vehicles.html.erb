@@ -1,11 +1,15 @@
 <h1>OHV Asset Manager</h1>
 <nav>
-  <a href="/stores">All Stores</a>
+  <a href="/stores">All Stores</a> | 
   <a href="/vehicles">All Vehicles</a>
 </nav>
 <hr />
+
 <h2>Vehicle list for <%= @store.store_name %></h2>
-<p><a href="/stores/<%= @store.id %>/vehicles/new">Create Vehicle</a></p>
+<p><a href="/stores/<%= @store.id %>/vehicles?sort=alphabetical">Sort Vehicles</a>
+ | 
+<a href="/stores/<%= @store.id %>/vehicles/new">Create Vehicle</a></p>
+
 <% @vehicles.each do |vehicle| %>
   <h3><%= vehicle.model_year %> <%= vehicle.make %> <%= vehicle.model %></h3>
   <p>Seating: <%= vehicle.seating %><br />

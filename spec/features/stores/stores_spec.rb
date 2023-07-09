@@ -14,8 +14,7 @@ describe "The stores pages" do
         expect(page).to have_content(@store1.store_name)
         expect(page).to have_content(@store2.store_name)
       end
-      it "US6 - I see that records are ordered by most recently created first
-      And next to each of the records I see when it was created" do
+      it "US6 - I see that records are ordered by most recently created first and next to each of the records I see when it was created" do
         visit "/stores"
 
         expect(page).to have_content(@store1.created_at)
@@ -163,7 +162,6 @@ describe "The stores pages" do
         
         expect(page).to have_link("Create Vehicle", :href=>"/stores/#{@store1.id}/vehicles/new")
       end
-      
       it "US13 - When I click the 'Create Vehicle' link I am taken to '/stores/:store_id/vehicles/new' where I see a form to add a new adoptable vehicle" do
         visit "/stores/#{@store1.id}/vehicles"
         click_link('Create Vehicle')
@@ -171,7 +169,6 @@ describe "The stores pages" do
         expect(current_path).to eq("/stores/#{@store1.id}/vehicles/new")
         expect(page).to have_css('#newvehicleform')
       end
-      
       it "US13 - When I fill in the form with the vehicle's attributes and I click the button 'Create Vehicle' then a `POST` request is sent to '/stores/:store_id/vehicles', a new vehicle object/row is created for that store, and I am redirected to the store vehicles Index page where I can see the new vehicle listed" do
         visit "/stores/#{@store1.id}/vehicles/new"
         
@@ -189,6 +186,18 @@ describe "The stores pages" do
         expect(current_path).to eq("/stores/#{@store1.id}/vehicles")
         expect(page).to have_content("2024")
         expect(page).to have_content("CForce 1000")
+      end
+      it "US16 - Then I see a link to sort children in alphabetical order" do
+        visit "/stores/#{@store1.id}/vehicles"
+        
+        expect(page).to have_link("Sort Vehicles")
+        expect(page.text.index(@vehicle1.make)).to be < page.text.index(@vehicle2.make)
+      end
+      it "US16 - When I click on the link I'm taken back to the store's vehicle Index Page where I see all of the store's vehicles in alphabetical order" do
+        visit "/stores/#{@store1.id}/vehicles"
+        click_link('Sort Vehicles')
+        
+        expect(page.text.index(@vehicle2.make)).to be < page.text.index(@vehicle1.make)
       end
     end
   end
