@@ -11,18 +11,20 @@ describe "The vehicles pages" do
   describe "As a visitor" do
     describe "When I visit '/vehicles'" do
       it "US3 - I see each vehicle in the system including the vehicle attributes" do
-        # visit "/vehicles"
+      
+        #   User Story 3 overwritten by User Story 15
+        #   visit "/vehicles"
 
-        # expect(page).to have_content(@vehicle1.model_year)
-        # expect(page).to have_content(@vehicle2.model_year)
-        # expect(page).to have_content(@vehicle1.make)
-        # expect(page).to have_content(@vehicle1.model)
-        # expect(page).to have_content(@vehicle3.model)
-        # expect(page).to have_content(@vehicle1.mileage)
-        # expect(page).to have_content(@vehicle1.store_id)
-        # expect(page).to have_content(@vehicle1.seating)
-        # expect(page).to have_content(@vehicle1.last_service_date)
-        # expect(page).to have_content(@vehicle1.engine_hours)
+        #   expect(page).to have_content(@vehicle1.model_year)
+        #   expect(page).to have_content(@vehicle2.model_year)
+        #   expect(page).to have_content(@vehicle1.make)
+        #   expect(page).to have_content(@vehicle1.model)
+        #   expect(page).to have_content(@vehicle3.model)
+        #   expect(page).to have_content(@vehicle1.mileage)
+        #   expect(page).to have_content(@vehicle1.store_id)
+        #   expect(page).to have_content(@vehicle1.seating)
+        #   expect(page).to have_content(@vehicle1.last_service_date)
+        #   expect(page).to have_content(@vehicle1.engine_hours)
       end
       it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
         visit "/vehicles"
