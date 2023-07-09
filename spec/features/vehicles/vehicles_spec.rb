@@ -36,7 +36,7 @@ describe "The vehicles pages" do
       end
     end
 
-    describe "US4 - When I visit '/child_table_name/:id'" do
+    describe "US4 - When I visit '/vehicles/:id'" do
       it "Then I see the child with that id including the child's attributes" do
         visit "/vehicles/#{@vehicle1.id}"
 
@@ -59,6 +59,41 @@ describe "The vehicles pages" do
         visit "/vehicles/#{@vehicle1.id}"
         
         expect(page).to have_link("All Stores", :href=>"/stores")
+      end
+      it "US14 - Then I see a link to update that Vehicle 'Update Vehicle'" do
+        visit "/vehicles/#{@vehicle1.id}"
+        expect(page).to have_link("Update Vehicle", :href=>"/vehicles/#{@vehicle1.id}/edit")
+      end
+
+      it "US14 - When I click the link I am taken to '/vehicles/:id/edit' where I see a form to edit the vehicle's attributes" do
+        visit "/vehicles/#{@vehicle1.id}"
+        click_link('Update Vehicle')
+
+        expect(current_path).to eq("/vehicles/#{@vehicle1.id}/edit")
+        expect(page).to have_css('#updatevehicleform')
+      end
+
+      it "US14 - When I click the button to submit the form 'Update Vehicle' then a `PATCH` request is sent to '/vehicles/:id',the vehicle's data is updated, and I am redirected to the vehicle Show page where I see the vehicle's updated information" do
+        visit "/vehicles/#{@vehicle1.id}/edit"
+        within('#updatevehicleform') do
+          fill_in "vehicle[model_year]", with: "1972"
+          fill_in "vehicle[make]", with: "Kawasaki"
+          fill_in "vehicle[model]", with: "KX110"
+          fill_in "vehicle[mileage]", with: "17652"
+          fill_in "vehicle[seating]", with: "1"
+          fill_in "vehicle[last_service_date]", with: "#{Time.now}"
+          fill_in "vehicle[engine_hours]", with: "704"
+          page.choose('true')
+        end
+        click_button("Submit")
+        
+        expect(current_path).to eq("/vehicles/#{@vehicle1.id}")
+        expect(page).to have_content("1972")
+        expect(page).to have_content("Kawasaki")
+        expect(page).to have_content("Suite 110")
+        expect(page).to have_content("17652")
+        expect(page).to have_content("80000")
+        expect(page).to have_content("704")
       end
     end
   end
