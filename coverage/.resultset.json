@@ -268,14 +268,35 @@
           null
         ]
       },
-      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/controllers/vehicles_controller.rb": {
+      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/app/controllers/stores_controller.rb": {
         "lines": [
           1,
           1,
-          3,
+          7,
           null,
           1,
-          6,
+          9,
+          9,
+          null,
+          1,
+          8,
+          8,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
           null,
           1,
           2,
@@ -283,6 +304,25 @@
           1,
           1,
           1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          2,
+          null,
+          1,
+          1,
+          1,
+          null,
           null,
           null,
           null,
@@ -305,6 +345,6 @@
         ]
       }
     },
-    "timestamp": 1688921953
+    "timestamp": 1688930830
   }
 }

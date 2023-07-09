@@ -41,12 +41,11 @@ describe "The vehicles pages" do
         expect(page).to_not have_content("WR250F")
         expect(page).to have_content("Ace 900 SE")
         expect(page).to have_content("CForce 600 Touring")
-        save_and_open_page
       end
     end
 
-    describe "US4 - When I visit '/vehicles/:id'" do
-      it "Then I see the child with that id including the child's attributes" do
+    describe "When I visit '/vehicles/:id'" do
+      it "US4 - Then I see the child with that id including the child's attributes" do
         visit "/vehicles/#{@vehicle1.id}"
 
         expect(page).to have_content(@vehicle1.model_year)
@@ -57,7 +56,6 @@ describe "The vehicles pages" do
         expect(page).to have_content(@vehicle1.seating)
         expect(page).to have_content(@vehicle1.last_service_date)
         expect(page).to have_content(@vehicle1.engine_hours)
-        #save_and_open_page
       end
       it "US8 - I see a link at the top of the page that takes me to the vehicles index" do
         visit "/vehicles/#{@vehicle1.id}"
