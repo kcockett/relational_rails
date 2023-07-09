@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-07-09T16:19:22-06:00">2023-07-09T16:19:22-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-07-09T16:45:13-06:00">2023-07-09T16:45:13-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.72
+         1.71
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>179</b> relevant lines,
-    <span class="green"><b>179</b> lines covered</span> and
+    <b>185</b> relevant lines,
+    <span class="green"><b>185</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -84,11 +84,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#26b391a83fafef78c80823cdf58af0d3eef2e2e0" class="src_link" title="app/controllers/stores_controller.rb">app/controllers/stores_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">77</td>
-            <td class="cell--number">30</td>
-            <td class="cell--number">30</td>
+            <td class="cell--number">83</td>
+            <td class="cell--number">34</td>
+            <td class="cell--number">34</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">3.00</td>
+            <td class="cell--number">2.79</td>
             
           </tr>
         
@@ -99,7 +99,7 @@
             <td class="cell--number">12</td>
             <td class="cell--number">12</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">2.00</td>
+            <td class="cell--number">2.08</td>
             
           </tr>
         
@@ -129,8 +129,8 @@
             <td class="strong t-file__name"><a href="#e6b3da38c23305a154b86b15f869cb62af1709a8" class="src_link" title="app/models/store.rb">app/models/store.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">3</td>
-            <td class="cell--number">1</td>
-            <td class="cell--number">1</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">2</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -249,9 +249,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#cf65159e15a6010b63e30777d0baa87c8d8ff2b3" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">22</td>
-            <td class="cell--number">16</td>
-            <td class="cell--number">16</td>
+            <td class="cell--number">23</td>
+            <td class="cell--number">17</td>
+            <td class="cell--number">17</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -352,8 +352,8 @@
     
 
     <div class="t-line-summary">
-      <b>30</b> relevant lines.
-      <span class="green"><b>30</b> lines covered</span> and
+      <b>34</b> relevant lines.
+      <span class="green"><b>34</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -387,8 +387,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="3">
-            <span class="hits">9</span>
+          <li class="covered" data-hits="10" data-linenumber="3">
+            <span class="hits">10</span>
             
 
             
@@ -1207,6 +1207,72 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="78">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="79">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    @store = Store.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="80">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    @store.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    redirect_to &quot;/stores&quot;, notice: &quot;Store was successfully deleted.&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="82">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="83">
+            
+            
+
+            
+
             <code class="ruby">end</code>
           </li>
         </div>
@@ -1265,8 +1331,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="3">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="6" data-linenumber="3">
+            <span class="hits">6</span>
             
 
             
@@ -1664,8 +1730,8 @@
     
 
     <div class="t-line-summary">
-      <b>1</b> relevant lines.
-      <span class="green"><b>1</b> lines covered</span> and
+      <b>2</b> relevant lines.
+      <span class="green"><b>2</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1688,13 +1754,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="2">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  #</code>
+            
+
+            <code class="ruby">  has_many :vehicles, dependent: :destroy</code>
           </li>
         </div>
       
@@ -4029,8 +4095,8 @@
     
 
     <div class="t-line-summary">
-      <b>16</b> relevant lines.
-      <span class="green"><b>16</b> lines covered</span> and
+      <b>17</b> relevant lines.
+      <span class="green"><b>17</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -4180,7 +4246,7 @@
 
             
 
-            <code class="ruby">  get &quot;/stores/:store_id/edit&quot;, to: &quot;stores#edit&quot;</code>
+            <code class="ruby">  delete &quot;/stores/:id&quot;, to: &quot;stores#destroy&quot;</code>
           </li>
         </div>
       
@@ -4191,7 +4257,7 @@
 
             
 
-            <code class="ruby">  get &quot;/stores/:location_id/vehicles&quot;, to: &quot;stores#show_vehicles&quot;</code>
+            <code class="ruby">  get &quot;/stores/:store_id/edit&quot;, to: &quot;stores#edit&quot;</code>
           </li>
         </div>
       
@@ -4202,7 +4268,7 @@
 
             
 
-            <code class="ruby">  get &quot;/stores/:location_id/vehicles/new&quot;, to: &quot;stores#edit_vehicle&quot;</code>
+            <code class="ruby">  get &quot;/stores/:location_id/vehicles&quot;, to: &quot;stores#show_vehicles&quot;</code>
           </li>
         </div>
       
@@ -4213,7 +4279,7 @@
 
             
 
-            <code class="ruby">  post &quot;/stores/:location_id/vehicles&quot;, to: &quot;stores#add_vehicle&quot;</code>
+            <code class="ruby">  get &quot;/stores/:location_id/vehicles/new&quot;, to: &quot;stores#edit_vehicle&quot;</code>
           </li>
         </div>
       
@@ -4224,7 +4290,7 @@
 
             
 
-            <code class="ruby">  get &quot;/stores/new&quot;, to: &quot;stores#new&quot;</code>
+            <code class="ruby">  post &quot;/stores/:location_id/vehicles&quot;, to: &quot;stores#add_vehicle&quot;</code>
           </li>
         </div>
       
@@ -4235,7 +4301,7 @@
 
             
 
-            <code class="ruby">  get &quot;/vehicles&quot;, to: &quot;vehicles#index&quot;</code>
+            <code class="ruby">  get &quot;/stores/new&quot;, to: &quot;stores#new&quot;</code>
           </li>
         </div>
       
@@ -4246,7 +4312,7 @@
 
             
 
-            <code class="ruby">  get &quot;/vehicles/:vehicle_id&quot;, to: &quot;vehicles#show&quot;</code>
+            <code class="ruby">  get &quot;/vehicles&quot;, to: &quot;vehicles#index&quot;</code>
           </li>
         </div>
       
@@ -4257,7 +4323,7 @@
 
             
 
-            <code class="ruby">  get &quot;/vehicles/:vehicle_id/edit&quot;, to: &quot;vehicles#edit&quot;</code>
+            <code class="ruby">  get &quot;/vehicles/:vehicle_id&quot;, to: &quot;vehicles#show&quot;</code>
           </li>
         </div>
       
@@ -4268,12 +4334,23 @@
 
             
 
+            <code class="ruby">  get &quot;/vehicles/:vehicle_id/edit&quot;, to: &quot;vehicles#edit&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">  patch &quot;/vehicles/:vehicle_id&quot;, to: &quot;vehicles#update&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="never" data-hits="" data-linenumber="23">
             
             
 

@@ -144,20 +144,19 @@ describe "The stores pages" do
       it "US19 - Then I see a link to delete the store" do
         visit "/stores/#{@store1.id}"
         
-        expect(page).to have_link("Delete Store", :href=>"/stores/#{@store1.id}/destroy")
-        save_and_open_page
+        expect(page).to have_link("Delete Store", :href=>"/stores/#{@store1.id}")
       end
       it "US19 - When I click the link 'Delete Store' then a 'DELETE' request is sent to '/stores/:id', the store is deleted, and all child records are deleted and I am redirected to the store index page where I no longer see this store" do
         visit "/stores/#{@store1.id}"
         click_link('Delete Store')
-
+        
         expect(current_path).to eq("/stores")
         expect(page).to_not have_content("#{@store1.store_name}")
-
+        
         visit "/vehicles/"
-        expect(page).to_not have_content("#{vehicle1.make}")
-        expect(page).to_not have_content("#{vehicle2.make}")
-        expect(page).to have_content("#{vehicle3.make}")
+        expect(page).to_not have_content("#{@vehicle1.make}")
+        expect(page).to_not have_content("#{@vehicle2.make}")
+        expect(page).to have_content("#{@vehicle3.make}")
       end
     end
     describe "When I visit '/stores/:id/vehicles" do
