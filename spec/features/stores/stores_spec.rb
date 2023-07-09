@@ -70,7 +70,7 @@ describe "The stores pages" do
       it "US17 - When I click the link I should be taken to that store's edit page where I can update its information" do
         visit "/stores/"
         first('a', text: 'edit').click
-        expect(current_path).to eq("stores/#{store1.id}/edit")
+        expect(current_path).to eq("/stores/#{@store1.id}/edit")
       end
       
     end
@@ -142,7 +142,6 @@ describe "The stores pages" do
         expect(page).to have_content("Joe Smith")
       end
     end
-    
     describe "When I visit '/stores/:id/vehicles" do
       it "Then I see each vehicle that is associated with that store with each vehicle's attributes" do
         visit "/stores/#{@store1.id}/vehicles"
