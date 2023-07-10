@@ -1,13 +1,37 @@
-<h1>OHV Asset Manager</h1>
+<h1>
+  OHV Asset Manager
+</h1>
 <nav>
-  <a href="/stores">All Stores</a>
-  <a href="/vehicles">All Vehicles</a>
+  <a href="/stores">
+    All Stores
+  </a>
+   | 
+  <a href="/vehicles">
+    All Vehicles
+  </a>
 </nav>
 <hr />
-<h2>Store list</h2>
-<p><a href="/stores/new">New Store</a></p>
+<h2>
+  Store list
+</h2>
+<p>
+  <a href="/stores/new">New Store</a>
+</p>
 <hr />
 <% @stores.order(created_at: :desc).each do |store| %>
-  <h3><%= store.store_name %> - <a style="font-size: 14px;" href="/stores/<%=store.id%>/edit">edit</a></h3>
-  <p>Created on: <%= store.created_at %></p>
+  <h3>
+    <%= store.store_name %> - 
+    <span style="font-size: 14px;">
+      <a href="/stores/<%=store.id%>/edit">
+        edit
+      </a>
+       | 
+      <a href="/stores/<%=store.id%>" data-method="delete">
+        delete
+      </a>
+    </span>
+  </h3>
+  <p>
+    Created on: <%= store.created_at %>
+  </p>
 <% end %>

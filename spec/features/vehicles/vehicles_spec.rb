@@ -7,7 +7,6 @@ describe "The vehicles pages" do
     @vehicle2 = Vehicle.create!(model_year: 2022, make: "CFMoto", model: "CForce 600 Touring", mileage: 425, repairs_needed: true, store_id: @store1.id, seating: 2, last_service_date: "2003-02-10 18:20:00+00", engine_hours: 0)
     @vehicle3 = Vehicle.create!(model_year: 2016, make: "Polaris", model: "Ace 900 SE", mileage: 525, repairs_needed: true, store_id: @store2.id, seating: 1, last_service_date: "2023-05-25 12:00:00+00", engine_hours: 0)
   end
-
   describe "As a visitor" do
     describe "When I visit '/vehicles'" do
       it "US3 - I see each vehicle in the system including the vehicle attributes" do
@@ -58,7 +57,6 @@ describe "The vehicles pages" do
         expect(current_path).to eq("/vehicles/#{@vehicle2.id}/edit")
       end
     end
-
     describe "When I visit '/vehicles/:id'" do
       it "US4 - Then I see the vehicle with that id including the vehicle's attributes" do
         visit "/vehicles/#{@vehicle1.id}"

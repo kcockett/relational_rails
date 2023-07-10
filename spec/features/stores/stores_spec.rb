@@ -72,7 +72,23 @@ describe "The stores pages" do
         first('a', text: 'edit').click
         expect(current_path).to eq("/stores/#{@store1.id}/edit")
       end
-      
+      it "US22 - Next to every store, I see a link to delete that store" do
+        visit "/stores/"
+
+        all('h3').each do |h3|
+          within(h3) do
+            expect(page).to have_link('delete')
+          end
+        end
+        save_and_open_page
+      end
+      it "US22 - When I click the link I am returned to the store Index Page where I no longer see that store" do
+        visit "/stores/"
+        first('a', text: 'delete').click
+        expect(current_path).to eq("/stores")
+        expect(page).to_not have_content("#{@store1.store_name}")
+        expect(page).to have_content("#{@store2.store_name}")
+      end
     end
     describe "When I visit '/stores/:id" do
       it "US2 - Then I see the store with that id including the store's attributes" do
@@ -256,7 +272,6 @@ describe "The stores pages" do
         expect(current_path).to eq("/stores/#{@store1.id}/vehicles")
         expect(page).to_not have_content("#{@vehicle1.make}")
         expect(page).to have_content("#{@vehicle2.make}")
-        save_and_open_page
       end
     end
   end
