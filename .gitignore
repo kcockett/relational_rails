@@ -30,4 +30,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/coverage/*
+# Ignore files generated for Simplecov
+/coverage/
