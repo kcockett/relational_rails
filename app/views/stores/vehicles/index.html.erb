@@ -32,27 +32,34 @@
   <input type="submit" value="Filter">
 </form>
 
-<% @vehicles.each do |vehicle| %>
-  <% if params[:seating_filter].blank? || vehicle.seating.to_i >= params[:seating_filter].to_i %>
-    <h3>
-      <%= vehicle.model_year %> <%= vehicle.make %> <%= vehicle.model %> - 
-      <span style="font-size: 14px;">
+<% filtered_vehicles = @vehicles %>
+<% if params[:seating_filter].present? %>
+  <% filtered_vehicles = filtered_vehicles.where('seating >= ?', params[:seating_filter].to_i) %>
+<% end %>
+<% if params[:sort] == 'alphabetical' %>
+  <% filtered_vehicles = filtered_vehicles.order(:make) %>
+<% end %>
+
+<% filtered_vehicles.each do |vehicle| %>
+  <h3>
+    <%= vehicle.model_year %> <%= vehicle.make %> <%= vehicle.model %> - 
+    <span style="font-size: 14px;">
       <a href="/vehicles/<%=vehicle.id%>/edit">
         edit
       </a>
-       | 
+      | 
       <a href="/vehicles/<%=vehicle.id%>" data-method="delete">
-          delete
+        delete
       </a>
     </span>
-    </h3>
-    <p>
-      Seating: <%= vehicle.seating %><br />
-      Mileage: <%= vehicle.mileage %><br />
-      Engine hours: <%= vehicle.engine_hours %><br />
-      Repairs Needed: <%= vehicle.repairs_needed %><br />
-      Last service: <%= vehicle.last_service_date %><br />
-      Current Location: <%= vehicle.store_id %>
-    </p>
-  <% end %>
+  </h3>
+  <p>
+    Seating: <%= vehicle.seating %><br />
+    Mileage: <%= vehicle.mileage %><br />
+    Engine hours: <%= vehicle.engine_hours %><br />
+    Repairs Needed: <%= vehicle.repairs_needed %><br />
+    Last service: <%= vehicle.last_service_date %><br />
+    Current Location: <%= vehicle.store_id %>
+  </p>
 <% end %>
+

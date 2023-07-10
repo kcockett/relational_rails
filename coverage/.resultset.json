@@ -493,20 +493,6 @@
           null
         ]
       },
-      "/Users/kainacockett/Desktop/mod2/projects/relational_rails/spec/features/vehicles/edit_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
       "/Users/kainacockett/Desktop/mod2/projects/relational_rails/spec/features/vehicles/index_spec.rb": {
         "lines": [
           1,
@@ -826,6 +812,6 @@
         ]
       }
     },
-    "timestamp": 1689024885
+    "timestamp": 1689026239
   }
 }
