@@ -56,6 +56,7 @@ group :development, :test do
   gem "capybara"
   gem "rspec-rails"
   gem "launchy" # save and open page
+  gem "shoulda-matchers"
 end
 
 group :development do
