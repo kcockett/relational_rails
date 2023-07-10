@@ -7,6 +7,8 @@ describe "The stores pages" do
     @vehicle1 = Vehicle.create!(model_year: 2019, make: "Yamaha", model: "WR250F", mileage: 0, repairs_needed: false, store_id: @store1.id, seating: 1, last_service_date: "2023-02-21 12:30:00+00", engine_hours: 150)
     @vehicle2 = Vehicle.create!(model_year: 2022, make: "CFMoto", model: "CForce 600 Touring", mileage: 425, repairs_needed: true, store_id: @store1.id, seating: 2, last_service_date: "2003-02-10 18:20:00+00", engine_hours: 0)
     @vehicle3 = Vehicle.create!(model_year: 2016, make: "Polaris", model: "Ace 900 SE", mileage: 525, repairs_needed: true, store_id: @store2.id, seating: 1, last_service_date: "2023-05-25 12:00:00+00", engine_hours: 0)
+    @vehicle4 = Vehicle.create!(model_year: 2023, make: "Kawasaki", model: "KRX 1000 SE", mileage: 120, repairs_needed: true, store_id: @store2.id, seating: 4, last_service_date: "2023-07-01 12:00:00+00", engine_hours: 10)
+    @vehicle5 = Vehicle.create!(model_year: 2024, make: "Can-Am", model: "Maverick X3 Turbo", mileage: 10, repairs_needed: true, store_id: @store2.id, seating: 2, last_service_date: "2023-06-25 12:00:00+00", engine_hours: 1)
   end
   describe "When I visit '/stores'" do
     it "I see the name of each parent record in the system" do
@@ -87,6 +89,19 @@ describe "The stores pages" do
       expect(current_path).to eq("/stores")
       expect(page).to_not have_content("#{@store1.store_name}")
       expect(page).to have_content("#{@store2.store_name}")
+    end
+    it "EX1 - Then I see a link to sort stores by the number of `vechicles` they have" do
+      visit "/stores/"
+
+      expect(page).to have_link('sort by vehicle count')
+    end
+    it "EX1 - When I click on the link I'm taken back to the store Index Page where I see all of the stores in order of their count of `vechicles` (highest to lowest) And, I see the number of children next to each store name" do
+      visit "/stores/"
+
+      expect(page.text.index(@store1.store_name)).to be < page.text.index(@store2.store_name)
+      click_link('sort by vehicle count')
+      expect(page.text.index(@store1.store_name)).to be > page.text.index(@store2.store_name)
+
     end
   end
 
