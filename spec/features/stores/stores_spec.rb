@@ -280,7 +280,6 @@ describe "The stores pages" do
             expect(page).to have_link('delete')
           end
         end
-        save_and_open_page
       end
       it "US23 - When I click the link I should be taken to the `vehicles` index page where I no longer see that vehicle" do
         visit "/vehicles"
@@ -288,7 +287,6 @@ describe "The stores pages" do
         expect(current_path).to eq("/vehicles")
         expect(page).to_not have_content("#{@vehicle2.make}")
         expect(page).to have_content("#{@vehicle3.make}")
-        save_and_open_page
       end
     end
   end
