@@ -1,16 +1,37 @@
-<h1>OHV Asset Manager</h1>
+<h1>
+  OHV Asset Manager
+</h1>
 <nav>
-  <a href="/stores">All Stores</a>
-  <a href="/vehicles">All Vehicles</a>
+  <a href="/stores">
+    All Stores
+  </a>
+  <a href="/vehicles">
+    All Vehicles
+  </a>
 </nav>
 <hr />
-<h2>Vehicle list</h2>
+<h2>
+  Vehicle list
+</h2>
 <% @vehicles.each do |vehicle| %>
-  <h3><%= vehicle.model_year %> <%= vehicle.make %> <%= vehicle.model %> - <a style="font-size: 14px;" href="/vehicles/<%=vehicle.id%>/edit">edit</a></h3>
-  <p>Seating: <%= vehicle.seating %><br />
-  Mileage: <%= vehicle.mileage %><br />
-  Engine hours: <%= vehicle.engine_hours %><br />
-  Repairs Needed: <%= vehicle.repairs_needed %><br />
-  Last service: <%= vehicle.last_service_date %><br />
-  Current Location: <%= vehicle.store_id %></p>
+  <h3>
+    <%= vehicle.model_year %> <%= vehicle.make %> <%= vehicle.model %> - 
+    <span style="font-size: 14px;">
+      <a href="/vehicles/<%=vehicle.id%>/edit">
+        edit
+      </a>
+       | 
+      <a href="/vehicles/<%=vehicle.id%>" data-method="delete">
+          delete
+      </a>
+    </span>
+  </h3>
+  <p>
+    Seating: <%= vehicle.seating %><br />
+    Mileage: <%= vehicle.mileage %><br />
+    Engine hours: <%= vehicle.engine_hours %><br />
+    Repairs Needed: <%= vehicle.repairs_needed %><br />
+    Last service: <%= vehicle.last_service_date %><br />
+    Current Location: <%= vehicle.store_id %>
+  </p>
 <% end %>

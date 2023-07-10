@@ -56,6 +56,22 @@ describe "The vehicles pages" do
 
         expect(current_path).to eq("/vehicles/#{@vehicle2.id}/edit")
       end
+      it "US23 - Next to every vehicle, I see a link to delete that vehicle" do
+        visit "/vehicles"
+        all('h3').each do |h3|
+          within(h3) do
+            expect(page).to have_link('delete')
+          end
+        end
+      end
+      it "US23 - When I click the link I should be taken to the `vehicles` index page where I no longer see that vehicle" do
+        visit "/vehicles"
+        first('a', text: 'delete').click
+
+        expect(current_path).to eq("/vehicles")
+        expect(page).to_not have_content("#{@vehicle2.make}")
+        expect(page).to have_content("#{@vehicle3.make}")
+      end
     end
     describe "When I visit '/vehicles/:id'" do
       it "US4 - Then I see the vehicle with that id including the vehicle's attributes" do
