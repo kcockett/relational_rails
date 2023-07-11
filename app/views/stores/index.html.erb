@@ -18,9 +18,23 @@
   <a href="/stores/new">New Store</a>
 </p>
 <hr />
-<% @stores.order(created_at: :desc).each do |store| %>
+
+<% sort_by = params[:sort] || 'created_at' %>
+<% stores_path = sort_by == 'vehicle_count' ? '/stores?sort=created_at' : '/stores?sort=vehicle_count' %>
+
+<p style="font-size: 14px">
+  <a href="/stores?sort=vehicle_count">sort by vehicle count</a>
+</p>
+
+<% @stores.each do |store| %>
   <h3>
-    <%= store.store_name %> - 
+    <% if sort_by == 'vehicle_count' %>
+      <%= store.store_name %> (<%= store.vehicles_count %>)
+    <% else %>
+      <%= store.store_name %>
+    <% end %>
+
+     - 
     <span style="font-size: 14px;">
       <a href="/stores/<%=store.id%>/edit">
         edit
