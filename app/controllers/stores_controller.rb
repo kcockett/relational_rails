@@ -1,6 +1,13 @@
 class StoresController < ApplicationController
   def index
-    @stores = Store.all
+    if params[:sort] == 'vehicle_count'
+      @stores = Store.left_joins(:vehicles)
+                     .select('stores.*, COUNT(vehicles.id) AS vehicles_count')
+                     .group('stores.id')
+                     .order('vehicles_count DESC')
+    else
+      @stores = Store.order(created_at: :desc)
+    end
   end
   def show
     @store = Store.find(params[:store_id])

@@ -97,7 +97,7 @@ describe "The stores pages" do
     end
     it "EX1 - When I click on the link I'm taken back to the store Index Page where I see all of the stores in order of their count of `vechicles` (highest to lowest) And, I see the number of children next to each store name" do
       visit "/stores/"
-
+      
       expect(page.text.index(@store1.store_name)).to be < page.text.index(@store2.store_name)
       click_link('sort by vehicle count')
       expect(page.text.index(@store1.store_name)).to be > page.text.index(@store2.store_name)
